@@ -1,0 +1,34 @@
+Folder structure
+1. uploads folder should be outside the src folder (security purpose, vulnerable for exploit, proceed with caution)
+2. front end payloads should be outside the src folder as well
+
+
+
+
+Code structure
+1. follow psr 1 and 2 coding rules
+https://www.php-fig.org/psr/psr-1/
+https://www.php-fig.org/psr/psr-2/
+2. create news feature
+ - sanitize, validate and escape user inputs
+ https://dev.to/anastasionico/good-practices-how-to-sanitize-validate-and-escape-in-php-3-methods-139b
+ https://www.php.net/manual/en/security.database.sql-injection.php
+ - should use prepared statements
+ https://www.php.net/manual/en/pdo.prepared-statements.php#:~:text=Prepared%20statements%20offer%20two%20major,plan%20for%20executing%20the%20query.
+3. database connection is defined both in index and create-news (better to have a single entry for easy maintenance)\
+4. theres no exceptions defined or base error handling component. (better to plan out possible user or app errors that may occur)
+
+
+
+Front end code structure
+1. no form validation (article itself and upload)
+2. backend code is mixed with the front end code (hard to maintain, follow mvc approach)
+
+
+
+Recommendation
+1. use mvc style approach
+2. always validate and sanitize user inputs
+3. paginate itemized dataset (performance impact)
+4. better to have web api endpoints for articles. (reusability, security, automation, integration, extensibility benefits)
+5. creating articles is open to all (maybe a limited identified people can add articles, implement login system for this feature) 
